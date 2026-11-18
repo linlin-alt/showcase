@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>06 · Echo Talk · 冷饭</title>
+<style>
+  :root{--paper:#faf8f5;--ink:#1c1a17;--ink-2:#57534c;--ink-3:#8a847a;--line:#e0dbd1;--accent:#8c3a26;--card:#fffdfa}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.75;font-size:16px;padding:0 20px 80px}
+  .wrap{max-width:720px;margin:0 auto}
+  a.back{display:inline-block;margin:28px 0 0;font-size:13px;color:var(--ink-3);text-decoration:none;letter-spacing:.04em}
+  a.back:hover{color:var(--accent)}
+  h1{font-size:27px;line-height:1.3;font-weight:600;letter-spacing:-.01em;margin:20px 0 22px}
+  h2{font-size:15px;letter-spacing:.06em;font-weight:600;margin:38px 0 12px;padding-top:18px;border-top:1px solid var(--line)}
+  h3{font-size:15px;font-weight:600;margin:24px 0 8px}
+  p{margin:12px 0;font-size:15.5px}
+  strong{font-weight:600}
+  blockquote{margin:0;padding:2px 0 2px 16px;border-left:2px solid var(--accent);color:var(--ink-2);font-size:15px}
+  ul,ol{margin:12px 0 12px 20px}
+  li{margin:6px 0;font-size:15.5px}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f3efe8;font-weight:600}
+  td img{max-width:100%;height:auto;border:1px solid var(--line)}
+  code{background:#f0ece5;padding:1px 5px;border-radius:2px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  pre{background:#f3efe8;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;margin:16px 0;border-radius:2px}
+  pre code{background:none;padding:0;font-size:12.5px;line-height:1.6}
+  hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+  em{color:var(--ink-3);font-style:normal;font-size:14px}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+  footer a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body><div class="wrap">
+<a class="back" href="../index.html">← 全部项目</a>
+<h1>06 · Echo Talk</h1>
+<blockquote>影子跟读（shadowing）的关键不是"听得多"，是"跟得上"。跟不上的时候，你不知道自己是从哪个词开始掉的。</blockquote>
+<p><strong>一句话：</strong> 一个英语跟读站，逐词高亮跟着音频走，卡住的那个词会亮在那里。</p>
+<hr>
+<h2>问题</h2>
+<p>影子跟读的老办法：放一段音频，跟着念。念错了、慢了、漏了，自己听不出来。</p>
+<p>市面上的跟读工具大多只做"播放 + 录音回放"，不告诉你<strong>哪一句、哪一个词</strong>掉了。</p>
+<h2>做法</h2>
+<p><strong>逐词时间轴，而不是逐句。</strong> 把音频切成词级时间戳，当前词高亮。跟不上的时候，你的眼睛会看到自己停在哪。 一句念完对不上，就再来一遍那一句——不是整段重来。</p>
+<p><strong>视频用 Blob 播，不走外链。</strong> 素材（视频 + 音频）随站点走，不依赖第三方播放器，离线也能用。</p>
+<p><strong>只做三件事。</strong> 播放、逐词跟、单句循环。不加社交、不加排行榜、不加打卡。跟读这件事，多一个按钮就多一次放弃。</p>
+<h2>我的角色</h2>
+<p>独立完成：引擎、界面、素材整理。</p>
+<h2>技术</h2>
+<ul><li>逐词时间轴对齐（词级时间戳 → 高亮区间）</li><li>Blob URL 播放本地视频，避免外部依赖</li><li>纯静态站点，无后端</li></ul>
+<h2>现状</h2>
+<p>可运行，含完整视频与音频素材。</p>
+<hr>
+<p><em>*仓库私有（含素材版权考量）。演示可现场打开。*</em></p>
+<footer>冷饭 · <a href="../index.html">作品集</a> · <a href="https://github.com/linlin-alt">GitHub</a></footer>
+</div></body></html>

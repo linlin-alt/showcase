@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>03 · 照片工坊 · 冷饭</title>
+<style>
+  :root{--paper:#faf8f5;--ink:#1c1a17;--ink-2:#57534c;--ink-3:#8a847a;--line:#e0dbd1;--accent:#8c3a26;--card:#fffdfa}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.75;font-size:16px;padding:0 20px 80px}
+  .wrap{max-width:720px;margin:0 auto}
+  a.back{display:inline-block;margin:28px 0 0;font-size:13px;color:var(--ink-3);text-decoration:none;letter-spacing:.04em}
+  a.back:hover{color:var(--accent)}
+  h1{font-size:27px;line-height:1.3;font-weight:600;letter-spacing:-.01em;margin:20px 0 22px}
+  h2{font-size:15px;letter-spacing:.06em;font-weight:600;margin:38px 0 12px;padding-top:18px;border-top:1px solid var(--line)}
+  h3{font-size:15px;font-weight:600;margin:24px 0 8px}
+  p{margin:12px 0;font-size:15.5px}
+  strong{font-weight:600}
+  blockquote{margin:0;padding:2px 0 2px 16px;border-left:2px solid var(--accent);color:var(--ink-2);font-size:15px}
+  ul,ol{margin:12px 0 12px 20px}
+  li{margin:6px 0;font-size:15.5px}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f3efe8;font-weight:600}
+  td img{max-width:100%;height:auto;border:1px solid var(--line)}
+  code{background:#f0ece5;padding:1px 5px;border-radius:2px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  pre{background:#f3efe8;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;margin:16px 0;border-radius:2px}
+  pre code{background:none;padding:0;font-size:12.5px;line-height:1.6}
+  hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+  em{color:var(--ink-3);font-style:normal;font-size:14px}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+  footer a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body><div class="wrap">
+<a class="back" href="../index.html">← 全部项目</a>
+<h1>03 · 照片工坊</h1>
+<blockquote>一万张照片在手机里是一团乱麻。归完之后是 900 多个能一眼找到的文件夹。</blockquote>
+<p><strong>一句话：</strong> 按拍摄地点把照片自动归进「日期\_时间\_城市区街道」的文件夹，每个地点精选几张代表作，顺手产出小红书 / 大众点评 / 抖音三套文案。</p>
+<hr>
+<h2>问题</h2>
+<p>出去玩一趟回来，相册多出几百张图。想发一条小红书，得手动翻四十分钟。 想找"那次在白云山拍的日落"，只能靠滑。</p>
+<p>现有工具要么只按日期分（等于没分），要么把照片全传上去做云端识别（隐私 + 花钱 + 传一万张要一整天）。</p>
+<h2>关键取舍：重活放本地，AI 只干一次轻活</h2>
+<p>这是这个项目唯一重要的决定。</p>
+<table><thead><tr><th>步骤</th><th>在哪跑</th><th>成本</th></tr></thead><tbody><tr><td>步骤</td><td>在哪跑</td><td>成本</td></tr><tr><td>扫描 EXIF、按定位分类、聚类、精选、去重</td><td>你自己的电脑</td><td>0 元，一次性</td></tr><tr><td>看图写文案</td><td>模型</td><td>调用次数 = <strong>地点数</strong>，不是照片数</td></tr></tbody></table>
+<p>一万张照片，AI 只被调用几百次。这条线划对了，成本从"不敢用"变成"一顿饭钱"。</p>
+<h2>做法</h2>
+<ul><li><strong>文件夹名自带信息量</strong>：<code>日期_时间_城市区街道</code>，不打开就知道是哪次、在哪</li><li><strong>每个地点只精选几张</strong>：选图按清晰度、人脸、构图打分，不让你在 900 个文件夹里重新挑</li><li><strong>文案按平台分</strong>：小红书要标题和标签，点评要打分维度，抖音要前三句钩子</li><li><strong>演练模式</strong>：不想碰自己照片的人，双击「演练」用内置样片先跑一遍</li></ul>
+<h2>我的角色</h2>
+<p>独立完成：需求、脚本、打包、文档、发布。</p>
+<h2>技术</h2>
+<ul><li>Python 本地批处理（EXIF / 定位解析 / 图像打分 / 相似去重）</li><li>打包成双击即用的 <code>.command</code>，首次运行自动准备环境，非技术用户也能用</li><li>产出物：归档目录 + 每地点的九图 + 文案 markdown + 一份案例复盘网页</li></ul>
+<h2>现状</h2>
+<ul><li>GitHub Release 提供 <code>photo-studio-v1.0.zip</code>（1.1 MB，傻瓜包）</li><li>文档按"你是谁"分流：只想整理照片看 5 分钟上手指南；报错看症状对照表；想改口径看进阶；想复刻看 SKILL.md（那是踩坑记录，不是功能列表）</li></ul>
+<h2>实际跑过的量</h2>
+<p>9,544 张照片 → 900 多个文件夹，一次跑完。</p>
+<hr>
+<p><em>*仓库私有（含个人照片样片）。安装包与文档可单独提供。*</em></p>
+<footer>冷饭 · <a href="../index.html">作品集</a> · <a href="https://github.com/linlin-alt">GitHub</a></footer>
+</div></body></html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 · 康伴 · 家庭就医助手 · 冷饭</title>
+<style>
+  :root{--paper:#faf8f5;--ink:#1c1a17;--ink-2:#57534c;--ink-3:#8a847a;--line:#e0dbd1;--accent:#8c3a26;--card:#fffdfa}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;line-height:1.75;font-size:16px;padding:0 20px 80px}
+  .wrap{max-width:720px;margin:0 auto}
+  a.back{display:inline-block;margin:28px 0 0;font-size:13px;color:var(--ink-3);text-decoration:none;letter-spacing:.04em}
+  a.back:hover{color:var(--accent)}
+  h1{font-size:27px;line-height:1.3;font-weight:600;letter-spacing:-.01em;margin:20px 0 22px}
+  h2{font-size:15px;letter-spacing:.06em;font-weight:600;margin:38px 0 12px;padding-top:18px;border-top:1px solid var(--line)}
+  h3{font-size:15px;font-weight:600;margin:24px 0 8px}
+  p{margin:12px 0;font-size:15.5px}
+  strong{font-weight:600}
+  blockquote{margin:0;padding:2px 0 2px 16px;border-left:2px solid var(--accent);color:var(--ink-2);font-size:15px}
+  ul,ol{margin:12px 0 12px 20px}
+  li{margin:6px 0;font-size:15.5px}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f3efe8;font-weight:600}
+  td img{max-width:100%;height:auto;border:1px solid var(--line)}
+  code{background:#f0ece5;padding:1px 5px;border-radius:2px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+  pre{background:#f3efe8;border:1px solid var(--line);padding:14px 16px;overflow-x:auto;margin:16px 0;border-radius:2px}
+  pre code{background:none;padding:0;font-size:12.5px;line-height:1.6}
+  hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+  em{color:var(--ink-3);font-style:normal;font-size:14px}
+  footer{margin-top:48px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-3)}
+  footer a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body><div class="wrap">
+<a class="back" href="../index.html">← 全部项目</a>
+<h1>01 · 康伴 · 家庭就医助手</h1>
+<blockquote>家人带老人看病，体检报告、出院小结、发票散在手机相册和抽屉里；报销时缺什么不知道，来回跑几趟。</blockquote>
+<p><strong>一句话：</strong> 把分散的就医资料按人、按病、按险种结构化成档案，就诊结束当场归位，需要时一键算出缺件、打包成能提交的报销材料。</p>
+<hr>
+<h2>问题长什么样</h2>
+<p>一次陪诊结束，你手里会多出：一张血常规、一张缴费单、一张处方、两段医生口头说的话、一个下次复诊的日期。 它们分别去了相册、口袋、微信收藏、和你的脑子。</p>
+<p>三个星期后要给老人报销——你缺什么，事前不知道；跑几趟才知道。</p>
+<p>行业里做健康产品的，大多在做「记录」。真实卡住家庭的是<strong>跑腿和报销</strong>。</p>
+<h2>做法</h2>
+<p><strong>四个角色，付钱的和用的不是同一个人。</strong> 子女（付钱、做决定、半夜接电话）／老人（只按一个按钮）／陪诊师（现场跑腿、拍照上传）／平台（审核资质、留痕）。</p>
+<p><strong>八步履约清单，是可勾选的，不是宣传语。</strong> 电话确认 → 取号挂号 → 候诊陪同 → 代述病情 → 检查缴费取药 → 领取报告 → 复诊预约 → 服务小结。 必传佐证的步骤没传现场照片，就完不成这一单——<strong>流程不靠自觉，靠状态机</strong>。</p>
+<p><strong>隐私是结构性的，不是承诺。</strong> 陪诊师端根本没有"健康档案"入口。要拿信息只有一个办法：家属生成 6 位分享码，10 分钟有效、可撤销、访问留痕。他能看到的只有这一次任务。</p>
+<p><strong>OCR 在浏览器里跑。</strong> Tesseract.js 本地识别，报告照片不上传第三方。识别置信度低就不自动填、不开用药提醒。 医生手写体认不准——这件事写在 README 里，不藏。</p>
+<p><strong>健康预警分三级。</strong> 红（电话外呼 + 强提醒）／黄（推送）／蓝（进每日汇总）。按级别决定打扰谁，不是全都弹窗。</p>
+<h2>我的角色</h2>
+<p>团队项目。我负责产品设计、业务链梳理与 AI 实现；需求、设计、架构三份文档是我带着问题一条条问出来、再落成文的。</p>
+<p>面试式提问的例子：*「老人自己会不会操作？」* → 不会 → 那老人端只能有一个按钮 → 那档案归属必须挂在子女账号下 → 那分享机制必须是一次性的。 一个问题改三层设计。</p>
+<h2>技术</h2>
+<ul><li>静态 PWA（HTML + 原生 JS + CSS），零构建，手机加主屏即用</li><li>Supabase：Auth 登录、家庭工作区、社区订单工作流、私有附件 Storage，<strong>9 个 SQL 迁移，全表 RLS</strong></li><li>浏览器本地 OCR（Tesseract.js），PDF 作附件留存、字段手填</li><li>体检看板：多指标趋势、异常随访跟踪、17 项化验单导入后自动入库（新指标连参考范围一起登记，不用改代码）</li></ul>
+<h2>看一眼</h2>
+<p>这两张是系统里的<strong>演示资料</strong>，人物、医院、药品名全为虚构，用于跑通「拍照 → 本地识别 → 核对入库 → 自动生成服药计划」这条线。</p>
+<table><thead><tr><th>化验报告</th><th>处方医嘱</th></tr></thead><tbody><tr><td>化验报告</td><td>处方医嘱</td></tr><tr><td><img src="../assets/01-kangban-sample-report.png" width="300" alt="虚构血常规报告"></td><td><img src="../assets/01-kangban-sample-rx.png" width="300" alt="虚构服药医嘱"></td></tr></tbody></table>
+<p>识别出来不是直接入库：先给你看一遍原文与字段对照，你逐项核对，确认才写进去。手写体、模糊图认不准的时候，系统不填、也不开用药提醒。</p>
+<h2>现状</h2>
+<ul><li>云端链路已通：真实账号 + RLS 的订单流，可演示</li><li>家庭端五 Tab：首页 / 健康档案 / 医疗资料 / 陪诊 / 我的</li><li>内置四位家庭成员<strong>虚构样例</strong>账号，病例与演示订单均为虚构</li><li>未接入真实医院、真实支付、真实医疗服务——这是原型，边界写在 README 第一段</li></ul>
+<h2>什么没做（主动说）</h2>
+<ul><li>后台定时推送：浏览器关闭或离线时，当前版本保证不了</li><li>医生手写中文识别：不保证准确，必须人工核对</li><li>陪诊师资质审核：目前靠管理员在 Supabase 后台人工过</li></ul>
+<hr>
+<p><em>*仓库私有。需要看代码可以单独开权限，或现场演示。*</em></p>
+<footer>冷饭 · <a href="../index.html">作品集</a> · <a href="https://github.com/linlin-alt">GitHub</a></footer>
+</div></body></html>
